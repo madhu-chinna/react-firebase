@@ -2,17 +2,28 @@
     display: flex;
     justify-content: space-around;
     /* width: 100vw; */
-    border:2px solid pink;
-    background-color: lightpink;
+    border:2px solid #b488db;
+    background-color:#b488db;
     list-style-type: none;
-    margin: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .nav-link {
     font-family: 'Roboto';
     text-decoration: none;
     margin: 10px;
-    font-weight: 400;
+    font-weight: bold;
     font-size: 25px;
-    color: blue;
+    color: #1a023b;
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 10px;
   }
+
+.nav-header{
+    border: 1px solid #b488db;
+    margin-left: 10px;
+    margin-right:10px;
+    background-color:#b488db;
+}

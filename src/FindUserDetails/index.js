@@ -47,13 +47,13 @@ const FindUserDetails = ()=>{
             <Header/>
             <div className='user-details-container'>
             <div className='container-1'>
-                <p>Total User {users.length}</p>
-                <h1>Find User details</h1>
+                <p className='user-count'>Total User {users.length}</p>
+                <h1 className='find-user-heading'>Find User details</h1>
                 <input className='input-element' placeholder='Enter Mobile Number' onChange={(event)=>{setMobileNumber(event.target.value)}}/>
                 <button className='user-details-button' onClick={loadUserDetails}>Submit</button>
             </div>
             <div >
-                {isFetchUserDetails ? <UserDetails user={userBasedOnMobileNumber}/>:<p>Enter mobile number</p>}
+                {isFetchUserDetails ? <UserDetails user={userBasedOnMobileNumber}/>:<p className='instruction-text'>Enter mobile number to get user details</p>}
             </div>
             </div>
             

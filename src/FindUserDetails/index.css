@@ -3,6 +3,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* border: 2px solid red; */
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #d0bae3;
+    min-height: 500px;
+    padding: 10px;
 }
 
 .container-1{
@@ -13,5 +19,25 @@
 }
 
 .user-details-button{
-    width: 100px;
+    width: 200px;
+    height: 35px;
+    color: #1a023b;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: #d0bae3;
+    border-radius: 5px;
+}
+
+.user-count{
+    color:#1a023b;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.find-user-heading{
+    color: #1a023b;
+}
+.instruction-text{
+    color: #1a023b;
+    font-weight: bold;
 }

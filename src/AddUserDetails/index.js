@@ -74,9 +74,9 @@ const AddUserDetails = () =>{
         <>
         <Header/>
         <div className="input-container">
-            <h1>ADD USER DETAILS</h1>
+            <h1 className="heading">ADD USER DETAILS</h1>
             <input className="input-element" placeholder="Enter your Name" onChange={(event)=>{setName(event.target.value)}}/>
-            <input className="input-element" type="number" placeholder="Enter Mobile Number" onChange={(event)=>{setMobileNumber(event.target.value)}}/>
+            <input className="input-element" placeholder="Enter Mobile Number" onChange={(event)=>{setMobileNumber(event.target.value)}}/>
            
 
             <form className='form' onSubmit={handleSubmit}>

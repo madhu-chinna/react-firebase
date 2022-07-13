@@ -3,8 +3,32 @@
     flex-direction:column;
     /* align-items:flex-start; */
     justify-content:flex-start;
+    /* border: 1px solid red; */
+    padding: 10px;
+    background-color: #dcd5e6;
+    margin-top: 10px;
+    border-radius: 10px;
 }
 
 .image-size{
-    height:200px;
+    height:150px;
+    width: 200px;
+}
+
+.name-heading{
+    color: #1a023b;
+}
+
+.mobile-heading{
+    color:#1a023b;
+}
+
+.date-heading{
+    color:#1a023b;
+}
+
+.image-container{
+    display: flex;
+    justify-content: center;
+
 }
