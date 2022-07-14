@@ -1,7 +1,6 @@
 import { async } from "@firebase/util";
 import React,{useState,useEffect} from "react";
 import {db, storage} from '../firebase-config' 
-// import Button from '@material-ui/core/Button';
 
 import {collection,addDoc} from 'firebase/firestore'
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
@@ -47,8 +46,10 @@ const AddUserDetails = () =>{
 
     const handleSubmit = async (event)=>{
         event.preventDefault()
-
-        const file = await event.target[0]?.files[0]
+        if(name==="" || mobileNumber === 0){
+            alert("enter user details in name and mobile number fields")
+        }else{
+            const file = await event.target[0]?.files[0]
 
         if (!file) return;
 
@@ -72,6 +73,7 @@ const AddUserDetails = () =>{
                     setButtonStatus(true)
                 });}
         )
+        }
         
 
     }
@@ -93,8 +95,12 @@ const AddUserDetails = () =>{
         <Header/>
         <div className="input-container">
             <h1 className="heading">ADD USER DETAILS</h1>
-            <input className="input-element" placeholder="Enter your Name" onChange={(event)=>{setName(event.target.value)}}/>
-            <input className="input-element" placeholder="Enter Mobile Number" onChange={(event)=>{setMobileNumber(event.target.value)}}/>
+            <input className="input-element" placeholder="Enter your Name" onChange={(event)=>{
+                setName(event.target.value) 
+                setUserDetailsStatus(false)}}/>
+            <input className="input-element" placeholder="Enter Mobile Number" onChange={(event)=>{
+                setMobileNumber(event.target.value)
+                setUserDetailsStatus(false)}}/>
             {isUserEnteringValidNumber?null:<p className="warning-text">Enter valid number</p>}
            
 
@@ -104,9 +110,9 @@ const AddUserDetails = () =>{
                 <br></br>
                 <input type="file" name="photo" id="upload-photo" />
                 <br></br>
-                <button className="upload-button-style" type='submit'>Upload</button>
+                <button className="upload-button-style" type='submit'>Submit</button>
             </form>
-            {isUserDetailsUploaded?<p className="user-details-upload-status">User Details Uploaded</p>:<p className="user-details-upload-status">Enter Details and Click on Upload Button</p>}
+            {isUserDetailsUploaded?<p className="user-details-upload-status">User Details Uploaded</p>:<p className="user-details-upload-status">Enter Details and Click on Submit Button</p>}
         </div>
         
         </>

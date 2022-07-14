@@ -5,7 +5,6 @@ const UserDetails = (props) =>{
     console.log(user)
 
     if(Object.keys(user).length === 0){
-        // console.log("User not found")
         return(
             <div>
                 <h1 className='user-not-found-heading'>USER NOT FOUND</h1>

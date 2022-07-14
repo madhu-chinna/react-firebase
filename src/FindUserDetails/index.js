@@ -12,21 +12,12 @@ const FindUserDetails = ()=>{
     const [users, setUser] = useState([])
     const [mobileNumber,setMobileNumber] = useState(0)
     const [isFetchUserDetails, changeUserState] = useState(false)
-    const [userBasedOnMobileNumber, setUserBasedOnMObile] = useState({})
-
-    const [isUserEnteringValidNumber, setValidNumberState] = useState(true)
-    
+    const [userBasedOnMobileNumber, setUserBasedOnMObile] = useState({})    
 
     useEffect(()=>{
-        if(isNaN(mobileNumber)){
-            setValidNumberState(false)
-        }else{
-            setValidNumberState(true)
-        }
         const getUsers = async () => {
             const usersCollectionRef = collection(db, "users")
             const data = await getDocs(usersCollectionRef)
-            // console.log(data.docs)
             setUser(data.docs.map((doc) =>({...doc.data(), id: doc.id})))
         }
 
@@ -36,8 +27,14 @@ const FindUserDetails = ()=>{
 
     
     const loadUserDetails = () =>{
-        haveSpecificUser()
-        changeUserState(true)
+        console.log("mobile number",typeof(mobileNumber))
+        if(mobileNumber === 0 || mobileNumber === ""){
+            alert("Enter valid mobile number")
+        }else{
+            haveSpecificUser()
+            changeUserState(true)
+        }
+        
     }
 
     const haveSpecificUser = () =>{
@@ -63,12 +60,14 @@ const FindUserDetails = ()=>{
             <div className='container-1'>
                 <p className='user-count'>Total User {users.length}</p>
                 <h1 className='find-user-heading'>Find User details</h1>
-                <input className='input-element' placeholder='Enter Mobile Number' onChange={(event)=>{setMobileNumber(event.target.value)}}/>
-                {isUserEnteringValidNumber?null:<p className="warning-text">Enter valid number</p>}
+                <input className='input-element' placeholder='Enter Mobile Number' onChange={(event)=>{
+                    setMobileNumber(event.target.value)
+                    changeUserState(false)
+                    }}/>
                 <button className='user-details-button' onClick={loadUserDetails}>Submit</button>
             </div>
             <div >
-                {isFetchUserDetails ? <UserDetails user={userBasedOnMobileNumber}/>:<p className='instruction-text'>Enter mobile number to get user details</p>}
+                {isFetchUserDetails ? <UserDetails user={userBasedOnMobileNumber}/>:<p className='instruction-text'>Enter mobile number and click on submit button to get user details</p>}
             </div>
             </div>
             

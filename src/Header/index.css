@@ -1,24 +1,19 @@
 .nav-menu{
     display: flex;
     justify-content: space-around;
-    /* width: 100vw; */
-    /* border:2px solid #86ed82; */
     background-color:#222426;
     list-style-type: none;
     margin-right: 10px;
     margin-left: 10px;
 }
-/* bg- #b488db */
 
 .nav-link {
     font-family: 'Roboto';
     text-decoration: none;
     margin: 10px;
-    /* font-weight: bold; */
     font-size: 25px;
     color: #e4ecf5;
     border: 2px solid white;
-    /* padding: 10px; */
     border-radius: 10px;
   }
 
