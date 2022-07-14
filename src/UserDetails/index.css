@@ -17,14 +17,26 @@
 
 .name-heading{
     color: #1a023b;
+    font-style: italic;
+    font-size: 18px;
 }
 
 .mobile-heading{
     color:#1a023b;
+    font-style: italic;
+    font-size: 18px;
 }
 
 .date-heading{
     color:#1a023b;
+    font-style: italic;
+    font-size: 18px;
+}
+
+.user-not-found-heading{
+    color:#e4ecf5;
+    font-style: italic;
+    font-size: 25px;
 }
 
 .image-container{

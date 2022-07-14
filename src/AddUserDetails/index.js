@@ -23,6 +23,8 @@ const AddUserDetails = () =>{
     const [isButtonClicked, setButtonStatus] = useState(false)
     const [isUserDetailsUploaded, setUserDetailsStatus] = useState(false)
 
+    const [isUserEnteringValidNumber, setValidNumberState] = useState(true)
+
     const usersCollectionRef = collection(db,"users")
 
 
@@ -31,6 +33,14 @@ const AddUserDetails = () =>{
         if (isButtonClicked && imgUrl !== null){
             addUserDetails()
         }
+
+        if(isNaN(mobileNumber)){
+            setValidNumberState(false)
+        }else{
+            setValidNumberState(true)
+        }
+
+
     })
 
     
@@ -85,6 +95,7 @@ const AddUserDetails = () =>{
             <h1 className="heading">ADD USER DETAILS</h1>
             <input className="input-element" placeholder="Enter your Name" onChange={(event)=>{setName(event.target.value)}}/>
             <input className="input-element" placeholder="Enter Mobile Number" onChange={(event)=>{setMobileNumber(event.target.value)}}/>
+            {isUserEnteringValidNumber?null:<p className="warning-text">Enter valid number</p>}
            
 
             <form className='form' onSubmit={handleSubmit}>

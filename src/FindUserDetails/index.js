@@ -14,9 +14,15 @@ const FindUserDetails = ()=>{
     const [isFetchUserDetails, changeUserState] = useState(false)
     const [userBasedOnMobileNumber, setUserBasedOnMObile] = useState({})
 
-
+    const [isUserEnteringValidNumber, setValidNumberState] = useState(true)
+    
 
     useEffect(()=>{
+        if(isNaN(mobileNumber)){
+            setValidNumberState(false)
+        }else{
+            setValidNumberState(true)
+        }
         const getUsers = async () => {
             const usersCollectionRef = collection(db, "users")
             const data = await getDocs(usersCollectionRef)
@@ -25,6 +31,7 @@ const FindUserDetails = ()=>{
         }
 
         getUsers()
+        
     }, [])
 
     
@@ -33,13 +40,20 @@ const FindUserDetails = ()=>{
         changeUserState(true)
     }
 
-    const haveSpecificUser = () =>(
+    const haveSpecificUser = () =>{
+        let validUser = false
         users.map((user)=>{
+            console.log(mobileNumber)
             if (mobileNumber === user.mobile){
                 setUserBasedOnMObile(user)
+                validUser = true
             }
+
         })
-        )
+        if(validUser === false){
+            setUserBasedOnMObile({})
+        }
+    }
  
 
     return(
@@ -50,6 +64,7 @@ const FindUserDetails = ()=>{
                 <p className='user-count'>Total User {users.length}</p>
                 <h1 className='find-user-heading'>Find User details</h1>
                 <input className='input-element' placeholder='Enter Mobile Number' onChange={(event)=>{setMobileNumber(event.target.value)}}/>
+                {isUserEnteringValidNumber?null:<p className="warning-text">Enter valid number</p>}
                 <button className='user-details-button' onClick={loadUserDetails}>Submit</button>
             </div>
             <div >

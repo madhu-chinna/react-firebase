@@ -5,8 +5,10 @@
     /* border: 2px solid red; */
     margin-left:10px;
     margin-right: 10px;
-    background-color: #c3dee3;
+    background-color: #222426;
     height: 500px;
+    border-top:3px solid #e4ecf5;
+    
 }
 
 /* bg- #d0bae3 */
@@ -23,8 +25,15 @@
     
 }
 
+@media all and (max-width:576px) {
+    .input-element{
+        width: 250px;
+    }
+}
+
 .heading{
-    color:#1a023b;
+    color:#e4ecf5;
+    font-style: italic;
 }
 
 .button-style{
@@ -37,29 +46,25 @@
 
 .input-file{
     height: 30px;
-    /* border: 1px solid red; */
-    /* background-color: red; */
-    color:#1a023b;
-    /* display: none; */
+    color:#e4ecf5;
 }
 
-.input-span{
-    height: 30px;
-    background-color: red;
-}
 
 .upload-button-style{
     height: 35px;
     width: 213px;
-    color:#1a023b;
+    color:#e4ecf5;
+    border: 3px solid #e4ecf5;
     font-weight: bold;
+    font-style: italic;
     border-radius: 5px;
-    background-color: #1be042;
+    background-color: #222426;
 }
 
 .user-details-upload-status{
-    color:#1a023b;
+    color:#e4ecf5;
     font-weight: bold;
+    font-style: italic;
 }
 
 label {
@@ -70,9 +75,11 @@ label {
     padding: 6px;
     width: 200px;
     border-radius: 5px;
-    color: #1a023b;
+    color: #e4ecf5;
     font-weight: bold;
-    background-color: #1be042;
+    background-color: #222426;
+    font-style: italic;
+    border: 3px solid #e4ecf5;
  }
  
  #upload-photo {
@@ -83,4 +90,8 @@ label {
 
  .form{
     margin-top: 15px;
+ }
+
+ .warning-text{
+    color:#e4ecf5;
  }

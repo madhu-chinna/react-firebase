@@ -3,10 +3,10 @@
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
-    /* border: 2px solid red; */
+    border-top: 3px solid #e4ecf5;
     margin-left: 10px;
     margin-right: 10px;
-    background-color: #c3dee3;
+    background-color: #222426;
     min-height: 500px;
     padding: 10px;
 }
@@ -21,23 +21,31 @@
 .user-details-button{
     width: 200px;
     height: 35px;
-    color: #1a023b;
+    color: #e4ecf5;
     font-weight: bold;
     font-size: 20px;
-    background-color: #1be042;
+    background-color: #222426;
     border-radius: 5px;
+    border: 3px solid #e4ecf5;
 }
 
 .user-count{
-    color:#1a023b;
+    color:#e4ecf5;
     font-weight: bold;
     font-size: 20px;
+    font-style: italic;
 }
 
 .find-user-heading{
-    color: #1a023b;
+    color: #e4ecf5;
+    font-style: italic;
 }
 .instruction-text{
-    color: #1a023b;
+    color: #e4ecf5;
     font-weight: bold;
+    font-style: italic;
 }
+
+.warning-text{
+    color:#e4ecf5;
+ }

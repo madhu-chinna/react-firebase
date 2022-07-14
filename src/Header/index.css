@@ -2,8 +2,8 @@
     display: flex;
     justify-content: space-around;
     /* width: 100vw; */
-    border:2px solid #86ed82;
-    background-color:#86ed82;
+    /* border:2px solid #86ed82; */
+    background-color:#222426;
     list-style-type: none;
     margin-right: 10px;
     margin-left: 10px;
@@ -14,17 +14,34 @@
     font-family: 'Roboto';
     text-decoration: none;
     margin: 10px;
-    font-weight: bold;
+    /* font-weight: bold; */
     font-size: 25px;
-    color: #1a023b;
+    color: #e4ecf5;
     border: 2px solid white;
-    padding: 10px;
+    /* padding: 10px; */
     border-radius: 10px;
   }
 
+@media all and (max-width:500px){
+    .nav-link{
+        font-size: 12px;
+        padding: 4px;
+        font-style: italic;
+    }
+    .text{
+        padding: 5px;
+        font-style: italic;
+    }
+}
+
+.text{
+    padding: 5px;
+    font-style: italic;
+}
+
 .nav-header{
-    border: 1px solid #b488db;
-    margin-left: 10px;
+    border: 1px solid #222426;
+    margin-left: 10px; 
     margin-right:10px;
-    background-color:#86ed82;
+    background-color:#222426;
 }
