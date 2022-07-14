@@ -1,6 +1,7 @@
 import { async } from "@firebase/util";
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import {db, storage} from '../firebase-config' 
+// import Button from '@material-ui/core/Button';
 
 import {collection,addDoc} from 'firebase/firestore'
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
@@ -15,21 +16,29 @@ import './index.css'
 const AddUserDetails = () =>{
     const [name,setName] = useState("")
     const [mobileNumber,setMobileNumber] = useState(0)
-    const [image,setImage] = useState(null)
     
     const [imgUrl, setImgUrl] = useState(null);
     const [progresspercent, setProgresspercent] = useState(0);
 
+    const [isButtonClicked, setButtonStatus] = useState(false)
+    const [isUserDetailsUploaded, setUserDetailsStatus] = useState(false)
+
     const usersCollectionRef = collection(db,"users")
+
+
+
+    useEffect(()=>{
+        if (isButtonClicked && imgUrl !== null){
+            addUserDetails()
+        }
+    })
 
     
 
-    const handleSubmit = (event)=>{
+    const handleSubmit = async (event)=>{
         event.preventDefault()
 
-        const file = event.target[0]?.files[0]
-
-        // console.log(file)
+        const file = await event.target[0]?.files[0]
 
         if (!file) return;
 
@@ -45,30 +54,29 @@ const AddUserDetails = () =>{
             (error) => {
                 alert(error);
             },
-            async () => {
-                await getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                    setImgUrl(downloadURL)
+            () => {
+                getDownloadURL(uploadTask.snapshot.ref).then(function (downloadURL) {
+
+                    console.log("down load img url", downloadURL);
+                    setImgUrl(downloadURL);
+                    setButtonStatus(true)
                 });}
-
-
         )
         
-        addUserDetails()
 
     }
+
+
 
     const addUserDetails = async () =>{
 
         console.log("outer image URL",imgUrl)
-
         await addDoc(usersCollectionRef,{name:name, mobile:mobileNumber, date: format(new Date(), 'MM/dd/yyyy'), imgUrl: imgUrl})
+        setButtonStatus(false)
+        setUserDetailsStatus(true)
+        
     }
 
-    const handleChange = (event)=>{
-        if (event.target.files[0]){
-            setImage(event.target.files[0])
-        }
-    }
 
       return (
         <>
@@ -80,11 +88,14 @@ const AddUserDetails = () =>{
            
 
             <form className='form' onSubmit={handleSubmit}>
-                <input type='file' />
+                {/* <input className="input-file" type='file' /> */}
+                <label htmlFor="upload-photo">Click here to upload Photo</label>
                 <br></br>
-                <button type='submit'>Upload</button>
+                <input type="file" name="photo" id="upload-photo" />
+                <br></br>
+                <button className="upload-button-style" type='submit'>Upload</button>
             </form>
-
+            {isUserDetailsUploaded?<p className="user-details-upload-status">User Details Uploaded</p>:<p className="user-details-upload-status">Enter Details and Click on Upload Button</p>}
         </div>
         
         </>

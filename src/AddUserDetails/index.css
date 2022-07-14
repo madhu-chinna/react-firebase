@@ -5,9 +5,11 @@
     /* border: 2px solid red; */
     margin-left:10px;
     margin-right: 10px;
-    background-color: #d0bae3;
+    background-color: #c3dee3;
     height: 500px;
 }
+
+/* bg- #d0bae3 */
 
 .input-element{
     width: 350px;
@@ -29,6 +31,56 @@
     width: 350px;
     height: 40px;
     margin: 10px;
-    background-color: blueviolet;
+    background-color: #1be042;
     border-radius: 10px;
 }
+
+.input-file{
+    height: 30px;
+    /* border: 1px solid red; */
+    /* background-color: red; */
+    color:#1a023b;
+    /* display: none; */
+}
+
+.input-span{
+    height: 30px;
+    background-color: red;
+}
+
+.upload-button-style{
+    height: 35px;
+    width: 213px;
+    color:#1a023b;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: #1be042;
+}
+
+.user-details-upload-status{
+    color:#1a023b;
+    font-weight: bold;
+}
+
+label {
+    cursor: pointer;
+    /* Style as you please, it will become the visible UI component. */
+    border: 1px solid #1a023b;
+    margin-top: 10px;
+    padding: 6px;
+    width: 200px;
+    border-radius: 5px;
+    color: #1a023b;
+    font-weight: bold;
+    background-color: #1be042;
+ }
+ 
+ #upload-photo {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+ }
+
+ .form{
+    margin-top: 15px;
+ }

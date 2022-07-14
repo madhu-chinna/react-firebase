@@ -1,12 +1,12 @@
 .user-details-container{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     /* border: 2px solid red; */
     margin-left: 10px;
     margin-right: 10px;
-    background-color: #d0bae3;
+    background-color: #c3dee3;
     min-height: 500px;
     padding: 10px;
 }
@@ -24,7 +24,7 @@
     color: #1a023b;
     font-weight: bold;
     font-size: 20px;
-    background-color: #d0bae3;
+    background-color: #1be042;
     border-radius: 5px;
 }
 
